@@ -1,9 +1,10 @@
 export const Api = `https://wookie.codesubmit.io/movies`;
+const authToken = 'Bearer Wookie2021';
 
 export const getMovieById = {
     method: 'get',
     headers: { 
-      'Authorization': 'Bearer Wookie2021'
+      'Authorization': authToken
     }
   };
 
@@ -11,6 +12,6 @@ export const getMovieById = {
     method: 'get',
     url: Api,
     headers: { 
-      'Authorization': 'Bearer Wookie2021'
+      'Authorization': authToken
     }
   };
