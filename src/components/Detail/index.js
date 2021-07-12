@@ -33,7 +33,10 @@ const Detail = () => {
       }
   return (
     <>
-    <h1>{movie.title}</h1>
+    <div className="detail_container">
+        <div className="left_pane"></div>
+        <div className="right_pane"></div>
+    </div>
     </>
   );
 };
