@@ -5,32 +5,20 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { getMovies } from '../../actions';
 
 const Genre = ({name}) => {
-    const [movieList, setMovieList] = useState([])
     const [genre, setGenre] = useState([])
 
     useEffect(() => {
         fetchMovieList()
       }, [])
-    
-    useEffect(() => {
-        console.log(genre)
-    }, [genre])
 
-      const fetchMovieList = () => {
-        var config = {
-          method: 'get',
-          url: 'https://wookie.codesubmit.io/movies',
-          headers: { 
-            'Authorization': 'Bearer Wookie2021'
-          }
-        };
-        
-        axios(config)
+
+      const fetchMovieList = () => {        
+        axios(getMovies)
         .then((res) => {
-          const movieData = res.data.movies
-          setMovieList(movieData)
+          const movieData = res.data.movies;
           setGenre(filterGenre(movieData))
         })
         .catch((err) => {

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Rating from '@material-ui/lab/Rating';
 import moment from 'moment';
-
+import { getMovieById, Api } from '../../actions';
 
 
 const Detail = () => {
@@ -17,13 +17,10 @@ const Detail = () => {
 
     const fetchMovie = () => {
         var config = {
-          method: 'get',
-          url: `https://wookie.codesubmit.io/movies/${slug}`,
-          headers: { 
-            'Authorization': 'Bearer Wookie2021'
-          }
+          ...getMovieById,
+          url: `${Api}/${slug}`
         };
-        
+
         axios(config)
         .then((res) => {
           setMovie(res.data)
