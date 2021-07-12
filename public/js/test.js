@@ -1,0 +1,1 @@
+console.log("This test js file loaded successfully")
