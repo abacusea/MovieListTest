@@ -27,7 +27,6 @@ const Detail = () => {
         axios(config)
         .then((res) => {
           setMovie(res.data)
-          console.log(res.data)
         })
         .catch((err) => {
           console.log(err);
